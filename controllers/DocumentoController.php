@@ -41,7 +41,6 @@ class DocumentoController extends Controller {
     public function actionIndex() {
         $searchModel = new DocumentoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $fila=[['cat_id'=>'Todas','cat_nombre'=>'Todas']];
         $categorias = ArrayHelper::map(Categoria::find()->all(), 'cat_id', 'cat_nombre');
         $programas = ArrayHelper::map(Programa::find()->all(), 'pro_id', 'pro_nombre');
         $unidades = ArrayHelper::map(Unidad::find()->all(), 'uni_id', 'uni_nombre');

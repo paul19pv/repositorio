@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Mapa */
 
@@ -14,8 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
+    <?=
+    $this->render('_form', [
         'model' => $model,
-    ]) ?>
+        'categorias' => $categorias,
+        'programas' => $programas,
+        'unidades' => $unidades
+    ])
+    ?>
 
 </div>

@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Mapa */
 
-$this->title = $model->map_id;
+$this->title = $model->map_nombre;
 $this->params['breadcrumbs'][] = ['label' => 'Mapas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -26,20 +26,43 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
-        'model' => $model,
+        'model' => [$model,$categoria,$programa,$unidad],
         'attributes' => [
-            'map_id',
-            'cat_id',
-            'pro_id',
-            'uni_id',
-            'usu_id',
-            'map_nombre',
-            'map_escala',
-            'map_entidad',
-            'map_autor',
-            'map_fecha',
-            'map_clave',
-            'map_ruta',
+            [
+                'label'=>'Categoria',
+                'value'=>$categoria->cat_nombre
+            ],[
+              'label'=>'Programa',
+                'value'=>$programa->pro_nombre
+            ],
+            [
+                'label'=>'Unidad Hídrica',
+                'value'=>$unidad->uni_nombre
+            ],
+            [
+                'label'=>'Nombre',
+                'value'=>$model->map_nombre
+            ],
+            [
+                'label'=>'Escala',
+                'value'=>$model->map_escala
+            ],
+            [
+                'label'=>'Entidad',
+                'value'=>$model->map_entidad
+            ],
+            [
+                'label'=>'Elaborado por',
+                'value'=>$model->map_autor
+            ],
+            [
+                'label'=>'Fecha de Elaboración',
+                'value'=>$model->map_fecha
+            ],
+            [
+                'label'=>'Palabras Clave',
+                'value'=>$model->map_clave
+            ],
         ],
     ]) ?>
 

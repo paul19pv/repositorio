@@ -9,7 +9,7 @@ use yii\jui\DatePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="documento-form">
+<div class="documento-form col-lg-6">
 
     <?php $form = ActiveForm::begin(); ?>
 

@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Categoria',
             ],
             [
-                'attribute' => 'cat_id',
+                'attribute' => 'uni_id',
                 'content' => function ($model, $key, $index, $column) {
                     $unidad = app\models\Unidad::findOne($model->uni_id);
                     if (!empty($unidad)) {
