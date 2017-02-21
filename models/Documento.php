@@ -58,17 +58,17 @@ class Documento extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'doc_id' => 'Doc ID',
-            'cat_id' => 'Cat ID',
-            'pro_id' => 'Pro ID',
-            'uni_id' => 'Uni ID',
-            'usu_id' => 'Usu ID',
-            'doc_titulo' => 'Doc Titulo',
-            'doc_autor' => 'Doc Autor',
-            'doc_publicacion' => 'Doc Publicacion',
-            'doc_descripcion' => 'Doc Descripcion',
-            'doc_clave' => 'Doc Clave',
-            'doc_ruta' => 'Doc Ruta',
+            'doc_id' => 'id',
+            'cat_id' => 'Categoría',
+            'pro_id' => 'Programa',
+            'uni_id' => 'Unidad',
+            'usu_id' => 'Usuario',
+            'doc_titulo' => 'Titulo',
+            'doc_autor' => 'Autor',
+            'doc_publicacion' => 'Fecha de Publicación',
+            'doc_descripcion' => 'Descripción',
+            'doc_clave' => 'Palabras Clave',
+            'doc_ruta' => 'Ruta',
         ];
     }
 

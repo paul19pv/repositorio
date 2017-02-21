@@ -2,11 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Documento */
 
-$this->title = $model->doc_id;
+$this->title = $model->doc_titulo;
 $this->params['breadcrumbs'][] = ['label' => 'Documentos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -26,20 +27,40 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
-        'model' => $model,
+        'model' => [$model,$categoria,$programa,$unidad],
         'attributes' => [
-            'doc_id',
-            'cat_id',
-            'pro_id',
-            'uni_id',
-            'usu_id',
-            'doc_titulo',
-            'doc_autor',
-            'doc_publicacion',
-            'doc_descripcion',
-            'doc_clave',
-            'doc_ruta',
+            [
+                'label'=>'Categoria',
+                'value'=>$categoria->cat_nombre
+            ],[
+              'label'=>'Programa',
+                'value'=>$programa->pro_nombre
+            ],
+            [
+                'label'=>'Unidad Hídrica',
+                'value'=>$unidad->uni_nombre
+            ],
+            [
+                'label'=>'Titulo',
+                'value'=>$model->doc_titulo
+            ],
+            [
+                'label'=>'Autor',
+                'value'=>$model->doc_autor
+            ],
+            [
+                'label'=>'Fecha de Publicación',
+                'value'=>$model->doc_publicacion
+            ],
+            [
+                'label'=>'Descripción',
+                'value'=>$model->doc_descripcion
+            ],
+            [
+                'label'=>'Palabras Clave',
+                'value'=>$model->doc_clave
+            ]
         ],
     ]) ?>
-
+    <embed src="<?= Url::to('@web/'.$model->doc_ruta, true); ?>" width="1180px" height="600px">
 </div>

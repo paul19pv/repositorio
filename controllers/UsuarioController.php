@@ -99,44 +99,6 @@ class UsuarioController extends Controller {
 
         return $this->redirect(['index']);
     }
-
-    public function actionUsuario() {
-        /* $query = Usuario::find()->where(['usu_usuario' => 'admin'])->one();
-          if (!empty($query)) {
-          $usuario = ['id' => $query->usu_id,
-          'username' => $query->usu_usuario,
-          'password' => $query->usu_password,
-          'authKey' => 'test101key',
-          'accessToken' => '101-token'];
-          var_dump($usuario);
-          } */
-        $users = [
-            '100' => [
-                'id' => '100',
-                'username' => 'admin',
-                'password' => 'admin',
-                'authKey' => 'test100key',
-                'accessToken' => '100-token',
-            ],
-            '101' => [
-                'id' => '101',
-                'username' => 'demo',
-                'password' => 'demo',
-                'authKey' => 'test101key',
-                'accessToken' => '101-token',
-            ],
-        ];
-
-        foreach ($users as $user) {
-            if (strcasecmp($user['username'], 'admin') === 0) {
-                var_dump($user);
-            }
-        }
-
-
-        //echo 'null';
-    }
-
     /**
      * Finds the Usuario model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

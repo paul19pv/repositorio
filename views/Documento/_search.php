@@ -8,32 +8,28 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="documento-search">
+<div class="documento-search col-lg-6">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'doc_id') ?>
+    
 
-    <?= $form->field($model, 'cat_id') ?>
+    <?= $form->field($model, 'cat_id')->dropDownList($categorias,['prompt'=>['text' => 'Todas', 'options' => ['value' => '', 'class' => 'prompt']]]) ?>
 
-    <?= $form->field($model, 'pro_id') ?>
+    <?= $form->field($model, 'uni_id')->dropDownList($unidades,['prompt'=>['text' => 'Todas', 'options' => ['value' => '', 'class' => 'prompt']]]) ?>
 
-    <?= $form->field($model, 'uni_id') ?>
+    <?php echo $form->field($model, 'doc_titulo') ?>
 
-    <?= $form->field($model, 'usu_id') ?>
-
-    <?php // echo $form->field($model, 'doc_titulo') ?>
-
-    <?php // echo $form->field($model, 'doc_autor') ?>
+    <?php echo $form->field($model, 'doc_autor') ?>
 
     <?php // echo $form->field($model, 'doc_publicacion') ?>
 
     <?php // echo $form->field($model, 'doc_descripcion') ?>
 
-    <?php // echo $form->field($model, 'doc_clave') ?>
+    <?php echo $form->field($model, 'doc_clave') ?>
 
     <?php // echo $form->field($model, 'doc_ruta') ?>
 

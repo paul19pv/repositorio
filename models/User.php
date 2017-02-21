@@ -39,7 +39,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             $user = ['id' => $query->usu_id,
                 'username' => $query->usu_usuario,
                 'password' => $query->usu_password,
-                'authKey' => 'test101key',
+                'authKey' => 'respositorio',
                 'accessToken' => '101-token'];
             //var_dump($usuario);
             return new static($user);
@@ -78,7 +78,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
             $user = ['id' => $query->usu_id,
                 'username' => $query->usu_usuario,
                 'password' => $query->usu_password,
-                'authKey' => 'test101key',
+                'authKey' => 'repositorio',
                 'accessToken' => '101-token'];
             //var_dump($usuario);
             return new static($user);
