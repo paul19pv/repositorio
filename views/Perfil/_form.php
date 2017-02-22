@@ -12,9 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'usu_id')->textInput() ?>
+    <?= $form->field($model, 'usu_id')->dropDownList($usuarios) ?>
 
-    <?= $form->field($model, 'rol_id')->textInput() ?>
+    <?= $form->field($model, 'rol_id')->dropDownList($roles) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

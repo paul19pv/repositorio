@@ -9,13 +9,14 @@ use yii\jui\DatePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="documento-search col-lg-6">
+<div class="documento-search col-lg-12">
 
     <?php
     $form = ActiveForm::begin([
                 'action' => ['index'],
                 'method' => 'get',
-    ]);
+                'options' => ['class' => 'form-inline']
+        ]);
     ?>
 
 

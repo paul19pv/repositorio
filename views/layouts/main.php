@@ -26,10 +26,11 @@ AppAsset::register($this);
         <div class="wrap">
             <?php
             NavBar::begin([
-                'brandLabel' => 'Repositorio',
+                //'brandLabel' => '<img alt="Repositorio" src="/repositorio/web/assets/logo01.jpg">',
+                'brandLabel' => 'Home',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
-                    'class' => 'navbar-inverse navbar-fixed-top',
+                    'class' => 'navbar-default navbar-fixed-top',
                 ],
             ]);
             echo Nav::widget([
@@ -42,7 +43,7 @@ AppAsset::register($this);
                             ['label' => 'Unidades', 'url' => ['/unidad/index']],
                             ['label' => 'Programas', 'url' => ['/programa/index']],
                             '<li class="divider"></li>',
-                            ['label' => 'Usuarios', 'url' => ['/usuario/usuario']],
+                            ['label' => 'Usuarios', 'url' => ['/usuario/index']],
                             ['label' => 'Roles', 'url' => ['/rol/index']],
                             ['label' => 'Perfiles', 'url' => ['/perfil/index']],
                         ]

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\MapaSearch */
@@ -64,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{upload}',
                 'buttons' => [
                     'upload' => function ($url, $model, $key) {
-                        return Html::a('<span class="glyphicon glyphicon-upload"></span>', $url);
+                        return Html::a('<span class="glyphicon glyphicon-upload"></span>', ['mapa/upload','map_id'=>$model->map_id]);
                     },
                 ]
             ],

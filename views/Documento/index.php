@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{upload}',
                 'buttons' => [
                     'upload' => function ($url, $model, $key) {
-                        return Html::a('<span class="glyphicon glyphicon-upload"></span>', $url);
+                        return Html::a('<span class="glyphicon glyphicon-upload"></span>', ['mapa/upload','doc_id'=>$model->doc_id]);
                     },
                 ]
             ],

@@ -15,6 +15,9 @@ use Yii;
  * @property string $usu_password
  * @property string $usu_confirm
  * @property string $usu_correo
+ * @property bool $usu_estado
+ * @property string $usu_key
+ * @property string $usu_token
  *
  * @property Documento[] $documentos
  * @property Mapa[] $mapas
@@ -36,8 +39,11 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['usu_nombre', 'usu_apellido', 'usu_usuario', 'usu_password', 'usu_confirm'], 'required'],
+            [['usu_estado'], 'boolean'],
             [['usu_cedula'], 'string', 'max' => 10],
             [['usu_nombre', 'usu_apellido', 'usu_usuario', 'usu_password', 'usu_confirm', 'usu_correo'], 'string', 'max' => 150],
+            [['usu_key', 'usu_token'], 'string', 'max' => 250],
         ];
     }
 
@@ -55,6 +61,9 @@ class Usuario extends \yii\db\ActiveRecord
             'usu_password' => 'Usu Password',
             'usu_confirm' => 'Usu Confirm',
             'usu_correo' => 'Usu Correo',
+            'usu_estado' => 'Usu Estado',
+            'usu_key' => 'Usu Key',
+            'usu_token' => 'Usu Token',
         ];
     }
 

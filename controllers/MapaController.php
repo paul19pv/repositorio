@@ -95,11 +95,13 @@ class MapaController extends Controller {
 
     public function actionUpload($map_id = null) {
         $model = new UploadForm();
-
         if (Yii::$app->request->isPost) {
             $model->mapFile = UploadedFile::getInstance($model, 'mapFile');
             $model->map_id = $map_id;
-            if ($model->upload_file() && $model->ruta_file($model->map_id)) {
+            if ($model->upload_map() && $model->ruta_map($model->map_id)) {
+                return $this->redirect(['view', 'id' => $model->map_id]);
+            }
+            else{
                 return $this->redirect(['view', 'id' => $model->map_id]);
             }
         }

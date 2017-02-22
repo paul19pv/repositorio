@@ -20,12 +20,12 @@ class UploadForm extends Model {
     public function rules() {
         return [
             [['docFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'pdf, txt,doc,docx', 'wrongExtension' => 'El archivo {file} no contiene una extensión permitida {extensions}'],
-            [['mapFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'zip', 'wrongExtension' => 'El archivo {file} no contiene una extensión permitida {extensions}']
+            [['mapFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'zip,rar,kml,kmz', 'wrongExtension' => 'El archivo {file} no contiene una extensión permitida {extensions}']
         ];
     }
 
     public function upload_file() {
-        if ($this->validate()) {
+        if ($this->validate(['docFile'])) {
             $this->docFile->saveAs('files/' . $this->docFile->baseName . '.' . $this->docFile->extension);
             return true;
         } else {
@@ -44,8 +44,8 @@ class UploadForm extends Model {
     }
 
     public function upload_map() {
-        if ($this->validate()) {
-            $this->mapFile->saveAs('files/' . $this->mapFile->baseName . '.' . $this->mapFile->extension);
+        if ($this->validate(['mapFile'])) {
+            $this->mapFile->saveAs('maps/' . $this->mapFile->baseName . '.' . $this->mapFile->extension);
             return true;
         } else {
             return false;

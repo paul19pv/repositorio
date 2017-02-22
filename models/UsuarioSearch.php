@@ -19,7 +19,8 @@ class UsuarioSearch extends Usuario
     {
         return [
             [['usu_id'], 'integer'],
-            [['usu_cedula', 'usu_nombre', 'usu_apellido', 'usu_usuario', 'usu_password', 'usu_confirm', 'usu_correo'], 'safe'],
+            [['usu_cedula', 'usu_nombre', 'usu_apellido', 'usu_usuario', 'usu_password', 'usu_confirm', 'usu_correo', 'usu_key', 'usu_token'], 'safe'],
+            [['usu_estado'], 'boolean'],
         ];
     }
 
@@ -60,6 +61,7 @@ class UsuarioSearch extends Usuario
         // grid filtering conditions
         $query->andFilterWhere([
             'usu_id' => $this->usu_id,
+            'usu_estado' => $this->usu_estado,
         ]);
 
         $query->andFilterWhere(['ilike', 'usu_cedula', $this->usu_cedula])
@@ -68,7 +70,9 @@ class UsuarioSearch extends Usuario
             ->andFilterWhere(['ilike', 'usu_usuario', $this->usu_usuario])
             ->andFilterWhere(['ilike', 'usu_password', $this->usu_password])
             ->andFilterWhere(['ilike', 'usu_confirm', $this->usu_confirm])
-            ->andFilterWhere(['ilike', 'usu_correo', $this->usu_correo]);
+            ->andFilterWhere(['ilike', 'usu_correo', $this->usu_correo])
+            ->andFilterWhere(['ilike', 'usu_key', $this->usu_key])
+            ->andFilterWhere(['ilike', 'usu_token', $this->usu_token]);
 
         return $dataProvider;
     }
