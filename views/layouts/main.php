@@ -36,18 +36,18 @@ AppAsset::register($this);
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => [
-                Yii::$app->user->isGuest?(''):(
-                        ['label' => 'Administracion',
-                        'items' => [
-                            ['label' => 'Categoria', 'url' => ['/categoria/index']],
-                            ['label' => 'Unidades', 'url' => ['/unidad/index']],
-                            ['label' => 'Programas', 'url' => ['/programa/index']],
-                            '<li class="divider"></li>',
-                            ['label' => 'Usuarios', 'url' => ['/usuario/index']],
-                            ['label' => 'Roles', 'url' => ['/rol/index']],
-                            ['label' => 'Perfiles', 'url' => ['/perfil/index']],
-                        ]
-                    ]),
+                    Yii::$app->user->isGuest ? ('') : (
+                            ['label' => 'Administracion',
+                                'items' => [
+                                    ['label' => 'Categoria', 'url' => ['/categoria/index']],
+                                    ['label' => 'Unidades', 'url' => ['/unidad/index']],
+                                    ['label' => 'Programas', 'url' => ['/programa/index']],
+                                    '<li class="divider"></li>',
+                                    ['label' => 'Usuarios', 'url' => ['/usuario/index']],
+                                    ['label' => 'Roles', 'url' => ['/rol/index']],
+                                    ['label' => 'Perfiles', 'url' => ['/perfil/index']],
+                                ]
+                            ]),
                     ['label' => 'Documentos', 'url' => ['/documento/index']],
                     ['label' => 'Mapas', 'url' => ['/mapa/index']],
                     Yii::$app->user->isGuest ? (
@@ -67,11 +67,11 @@ AppAsset::register($this);
             ?>
 
             <div class="container">
-<?=
-Breadcrumbs::widget([
-    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-])
-?>
+                <?=
+                Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ])
+                ?>
                 <?= $content ?>
             </div>
         </div>

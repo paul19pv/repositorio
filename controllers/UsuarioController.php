@@ -60,7 +60,7 @@ class UsuarioController extends Controller {
      */
     public function actionCreate() {
         $model = new Usuario();
-
+        $model->usu_key=Yii::$app->security->generateRandomKey(32);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->usu_id]);
         } else {
