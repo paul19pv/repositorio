@@ -32,7 +32,15 @@ use yii\jui\DatePicker;
     <?php echo $form->field($model, 'map_autor') ?>
 
     <?php
-    echo $form->field($model, 'map_fecha')->widget(DatePicker::classname(), [
+    echo $form->field($model, 'map_elaboracion')->widget(DatePicker::classname(), [
+        'options' => ['class' => 'form-control'],
+        //'language' => 'ru',
+        'dateFormat' => 'yyyy-MM-dd'
+    ])
+    ?>
+    
+    <?php
+    echo $form->field($model, 'map_recepcion')->widget(DatePicker::classname(), [
         'options' => ['class' => 'form-control'],
         //'language' => 'ru',
         'dateFormat' => 'yyyy-MM-dd'

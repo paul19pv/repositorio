@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use app\models\Mapa;
 
 /**
- * MapaSearch represents the model behind the search form of `app\models\Mapa`.
+ * MapaSearch represents the model behind the search form about `app\models\Mapa`.
  */
 class MapaSearch extends Mapa
 {
@@ -68,13 +68,13 @@ class MapaSearch extends Mapa
             'map_recepcion' => $this->map_recepcion,
         ]);
 
-        $query->andFilterWhere(['ilike', 'map_nombre', $this->map_nombre])
-            ->andFilterWhere(['ilike', 'map_descripcion', $this->map_descripcion])
-            ->andFilterWhere(['ilike', 'map_escala', $this->map_escala])
-            ->andFilterWhere(['ilike', 'map_entidad', $this->map_entidad])
-            ->andFilterWhere(['ilike', 'map_autor', $this->map_autor])
-            ->andFilterWhere(['ilike', 'map_clave', $this->map_clave])
-            ->andFilterWhere(['ilike', 'map_ruta', $this->map_ruta]);
+        $query->andFilterWhere(['like', 'map_nombre', $this->map_nombre])
+            ->andFilterWhere(['like', 'map_descripcion', $this->map_descripcion])
+            ->andFilterWhere(['like', 'map_escala', $this->map_escala])
+            ->andFilterWhere(['like', 'map_entidad', $this->map_entidad])
+            ->andFilterWhere(['like', 'map_autor', $this->map_autor])
+            ->andFilterWhere(['like', 'map_clave', $this->map_clave])
+            ->andFilterWhere(['like', 'map_ruta', $this->map_ruta]);
 
         return $dataProvider;
     }

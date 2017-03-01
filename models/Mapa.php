@@ -7,16 +7,18 @@ use Yii;
 /**
  * This is the model class for table "mapa".
  *
- * @property int $map_id
- * @property int $cat_id
- * @property int $pro_id
- * @property int $uni_id
- * @property int $usu_id
+ * @property integer $map_id
+ * @property integer $cat_id
+ * @property integer $pro_id
+ * @property integer $uni_id
+ * @property integer $usu_id
  * @property string $map_nombre
+ * @property string $map_descripcion
  * @property string $map_escala
  * @property string $map_entidad
  * @property string $map_autor
- * @property string $map_fecha
+ * @property string $map_elaboracion
+ * @property string $map_recepcion
  * @property string $map_clave
  * @property string $map_ruta
  *
@@ -41,10 +43,11 @@ class Mapa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cat_id', 'pro_id', 'uni_id', 'usu_id'], 'default', 'value' => null],
             [['cat_id', 'pro_id', 'uni_id', 'usu_id'], 'integer'],
-            [['map_fecha'], 'safe'],
+            [['map_descripcion', 'map_escala', 'map_entidad', 'map_clave'], 'required'],
+            [['map_elaboracion', 'map_recepcion'], 'safe'],
             [['map_nombre', 'map_entidad'], 'string', 'max' => 100],
+            [['map_descripcion'], 'string', 'max' => 250],
             [['map_escala'], 'string', 'max' => 50],
             [['map_autor', 'map_clave', 'map_ruta'], 'string', 'max' => 200],
             [['cat_id'], 'exist', 'skipOnError' => true, 'targetClass' => Categoria::className(), 'targetAttribute' => ['cat_id' => 'cat_id']],
@@ -61,17 +64,19 @@ class Mapa extends \yii\db\ActiveRecord
     {
         return [
             'map_id' => 'Map ID',
-            'cat_id' => 'Cat ID',
-            'pro_id' => 'Pro ID',
-            'uni_id' => 'Uni ID',
-            'usu_id' => 'Usu ID',
-            'map_nombre' => 'Map Nombre',
-            'map_escala' => 'Map Escala',
-            'map_entidad' => 'Map Entidad',
-            'map_autor' => 'Map Autor',
-            'map_fecha' => 'Map Fecha',
-            'map_clave' => 'Map Clave',
-            'map_ruta' => 'Map Ruta',
+            'cat_id' => 'Categoría',
+            'pro_id' => 'Programa',
+            'uni_id' => 'Unidad Hídrica',
+            'usu_id' => 'Usuario',
+            'map_nombre' => 'Nombre',
+            'map_descripcion' => 'Descripcion',
+            'map_escala' => 'Escala',
+            'map_entidad' => 'Entidad',
+            'map_autor' => 'Autor',
+            'map_elaboracion' => 'Fecha de Elaboración',
+            'map_recepcion' => 'Fecha de Recepción',
+            'map_clave' => 'Palabras Clave',
+            'map_ruta' => 'Ruta',
         ];
     }
 
